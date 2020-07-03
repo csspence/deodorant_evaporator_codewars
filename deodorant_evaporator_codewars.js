@@ -8,6 +8,12 @@ The program reports the nth day (as an integer) on which the evaporator will be 
 Note : Content is in fact not necessary in the body of the function "evaporator", you can use it or not use it, as you wish. Some people might prefer to reason with content, some other with percentages only. It's up to you but you must keep it as a parameter because the tests have it as an argument.
 */
 
-function evaporator(content, evap_per_day, threshold){ 
-  return -1;
+const evaporator = (content, evap_per_day, threshold) => {
+  let day = 0;
+  const baseline = content * (threshold * .01);
+  while(baseline < content) {
+    content -= content * (evap_per_day * .01);
+    day++;
+  }
+  return day;
 }
